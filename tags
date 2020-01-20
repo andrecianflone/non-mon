@@ -430,6 +430,7 @@ train_data	main.py	/^train_data = batchify(corpus.train, args.batch_size, args)$
 train_file_ids	data_ptb.py	/^train_file_ids = []$/;"	v
 tree2list	data_ptb.py	/^        def tree2list(tree):$/;"	f	function:Corpus.tokenize
 unpad	parse_comparison.py	/^def unpad(parse):$/;"	f
+usage	run.sh	/^function usage() {$/;"	f
 val_data	main.py	/^val_data = batchify(corpus.valid, eval_batch_size, args)$/;"	v
 val_loss	main.py	/^            val_loss = evaluate(val_data, eval_batch_size)$/;"	v
 val_loss2	main.py	/^            val_loss2 = evaluate(val_data, eval_batch_size)$/;"	v
