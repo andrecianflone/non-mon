@@ -1,0 +1,449 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ARG_CHECK	EVALB/evalb.c	303;"	d	file:
+ConvertBinaryBracketedSeq	parse_comparison.py	/^def ConvertBinaryBracketedSeq(seq):$/;"	f
+Corpus	data.py	/^class Corpus(object):$/;"	c
+Corpus	data_ptb.py	/^class Corpus(object):$/;"	c
+Counter	data.py	/^from collections import Counter$/;"	i
+Counter	parse_comparison.py	/^from collections import Counter$/;"	i
+DEBUG	EVALB/evalb.c	/^int DEBUG=0;$/;"	v
+DEFAULT_CUT_LEN	EVALB/evalb.c	75;"	d	file:
+DEFAULT_MAX_ERROR	EVALB/evalb.c	74;"	d	file:
+Delete_label	EVALB/evalb.c	/^char *Delete_label[MAX_DELETE_LABEL];$/;"	v
+Delete_label_for_length	EVALB/evalb.c	/^char *Delete_label_for_length[MAX_DELETE_LABEL];$/;"	v
+Delete_label_for_length_n	EVALB/evalb.c	/^int Delete_label_for_length_n = 0;$/;"	v
+Delete_label_n	EVALB/evalb.c	/^int Delete_label_n = 0;$/;"	v
+Dictionary	data.py	/^class Dictionary(object):$/;"	c
+Dictionary	data_ptb.py	/^class Dictionary(object):$/;"	c
+E	splitcross.py	/^    E = 10$/;"	v	class:SplitCrossEntropyLoss
+EQ_label	EVALB/evalb.c	/^s_equiv EQ_label[MAX_EQ_LABEL];$/;"	v
+EQ_label_n	EVALB/evalb.c	/^int EQ_label_n = 0;$/;"	v
+EQ_word	EVALB/evalb.c	/^s_equiv EQ_word[MAX_EQ_WORD];$/;"	v
+EQ_word_n	EVALB/evalb.c	/^int EQ_word_n = 0;$/;"	v
+Error	EVALB/evalb.c	/^Error(s,arg1,arg2,arg3)$/;"	f
+Error_count	EVALB/evalb.c	/^int Error_count = 0;                       \/* Error count *\/$/;"	v
+F	ON_LSTM.py	/^import torch.nn.functional as F$/;"	i
+FLAGS	parse_comparison.py	/^FLAGS = gflags.FLAGS$/;"	v
+F_label	EVALB/evalb.c	/^int F_label    = 1;                 $/;"	v
+Fatal	EVALB/evalb.c	/^Fatal(s,arg1,arg2,arg3)$/;"	f
+H	splitcross.py	/^    H = 10$/;"	v	class:SplitCrossEntropyLoss
+LABEL_MAP	parse_comparison.py	/^LABEL_MAP = {'entailment': 0, 'neutral': 1, 'contradiction': 2}$/;"	v
+LayerNorm	ON_LSTM.py	/^class LayerNorm(nn.Module):$/;"	c
+Line	EVALB/evalb.c	/^int Line;                                  \/* line number *\/$/;"	v
+LinearDropConnect	ON_LSTM.py	/^class LinearDropConnect(nn.Linear):$/;"	c
+LockedDropout	ON_LSTM.py	/^from locked_dropout import LockedDropout$/;"	i
+LockedDropout	locked_dropout.py	/^class LockedDropout(nn.Module):$/;"	c
+LockedDropout	model.py	/^from locked_dropout import LockedDropout$/;"	i
+MAX_BRACKET_IN_SENT	EVALB/evalb.c	63;"	d	file:
+MAX_DELETE_LABEL	EVALB/evalb.c	68;"	d	file:
+MAX_EQ_LABEL	EVALB/evalb.c	69;"	d	file:
+MAX_EQ_WORD	EVALB/evalb.c	70;"	d	file:
+MAX_LABEL_LEN	EVALB/evalb.c	65;"	d	file:
+MAX_LINE_LEN	EVALB/evalb.c	72;"	d	file:
+MAX_QUOTE_TERM	EVALB/evalb.c	66;"	d	file:
+MAX_SENT_LEN	EVALB/evalb.c	61;"	d	file:
+MAX_WORD_IN_SENT	EVALB/evalb.c	62;"	d	file:
+MAX_WORD_LEN	EVALB/evalb.c	64;"	d	file:
+MRG	test_phrase_grammar.py	/^def MRG(tr):$/;"	f
+MRG_labeled	test_phrase_grammar.py	/^def MRG_labeled(tr):$/;"	f
+Max_error	EVALB/evalb.c	/^int Max_error = DEFAULT_MAX_ERROR;$/;"	v
+N	splitcross.py	/^    N = 100$/;"	v	class:SplitCrossEntropyLoss
+ONLSTMCell	ON_LSTM.py	/^class ONLSTMCell(nn.Module):$/;"	c
+ONLSTMStack	ON_LSTM.py	/^class ONLSTMStack(nn.Module):$/;"	c
+ONLSTMStack	model.py	/^from ON_LSTM import ONLSTMStack$/;"	i
+Parameter	weight_drop.py	/^from torch.nn import Parameter$/;"	i
+Quote_term	EVALB/evalb.c	/^char *Quote_term[MAX_QUOTE_TERM];$/;"	v
+Quote_term_n	EVALB/evalb.c	/^int Quote_term_n = 0;$/;"	v
+RNNModel	model.py	/^class RNNModel(nn.Module):$/;"	c
+STRNCMP	EVALB/evalb.c	543;"	d	file:
+SplitCrossEntropyLoss	main.py	/^from splitcross import SplitCrossEntropyLoss$/;"	i
+SplitCrossEntropyLoss	splitcross.py	/^class SplitCrossEntropyLoss(nn.Module):$/;"	c
+Status	EVALB/evalb.c	/^int Status;                                \/* Result status for each sent *\/$/;"	v
+TOT40_2L_crossing	EVALB/evalb.c	/^int TOT40_2L_crossing;                     \/* 2 or less crossing sentence *\/$/;"	v
+TOT40_bn1	EVALB/evalb.c	/^int TOT40_bn1, TOT40_bn2, TOT40_match;     \/* total number of brackets *\/$/;"	v
+TOT40_bn2	EVALB/evalb.c	/^int TOT40_bn1, TOT40_bn2, TOT40_match;     \/* total number of brackets *\/$/;"	v
+TOT40_comp_sent	EVALB/evalb.c	/^int TOT40_comp_sent;                       \/* No. of complete match sent *\/$/;"	v
+TOT40_correct_tag	EVALB/evalb.c	/^int TOT40_correct_tag;                     \/* total correct tagging *\/$/;"	v
+TOT40_crossing	EVALB/evalb.c	/^int TOT40_crossing;                        \/* total crossing *\/$/;"	v
+TOT40_error_sent	EVALB/evalb.c	/^int TOT40_error_sent;                      \/* No. of error sentence *\/$/;"	v
+TOT40_match	EVALB/evalb.c	/^int TOT40_bn1, TOT40_bn2, TOT40_match;     \/* total number of brackets *\/$/;"	v
+TOT40_no_crossing	EVALB/evalb.c	/^int TOT40_no_crossing;                     \/* no crossing sentence *\/$/;"	v
+TOT40_sent	EVALB/evalb.c	/^int TOT40_sent;                            \/* No. of sentence *\/$/;"	v
+TOT40_skip_sent	EVALB/evalb.c	/^int TOT40_skip_sent;                       \/* No. of skip sentence *\/$/;"	v
+TOT40_word	EVALB/evalb.c	/^int TOT40_word;                            \/* total number of word *\/$/;"	v
+TOTAL_2L_crossing	EVALB/evalb.c	/^int TOTAL_2L_crossing;                     \/* 2 or less crossing sentence *\/$/;"	v
+TOTAL_bn1	EVALB/evalb.c	/^int TOTAL_bn1, TOTAL_bn2, TOTAL_match;     \/* total number of brackets *\/$/;"	v
+TOTAL_bn2	EVALB/evalb.c	/^int TOTAL_bn1, TOTAL_bn2, TOTAL_match;     \/* total number of brackets *\/$/;"	v
+TOTAL_comp_sent	EVALB/evalb.c	/^int TOTAL_comp_sent;                       \/* No. of complete match sent *\/$/;"	v
+TOTAL_correct_tag	EVALB/evalb.c	/^int TOTAL_correct_tag;                     \/* total correct tagging *\/$/;"	v
+TOTAL_crossing	EVALB/evalb.c	/^int TOTAL_crossing;                        \/* total crossing *\/$/;"	v
+TOTAL_error_sent	EVALB/evalb.c	/^int TOTAL_error_sent;                      \/* No. of error sentence *\/$/;"	v
+TOTAL_match	EVALB/evalb.c	/^int TOTAL_bn1, TOTAL_bn2, TOTAL_match;     \/* total number of brackets *\/$/;"	v
+TOTAL_no_crossing	EVALB/evalb.c	/^int TOTAL_no_crossing;                     \/* no crossing sentence *\/$/;"	v
+TOTAL_sent	EVALB/evalb.c	/^int TOTAL_sent;                            \/* No. of sentence *\/$/;"	v
+TOTAL_skip_sent	EVALB/evalb.c	/^int TOTAL_skip_sent;                       \/* No. of skip sentence *\/$/;"	v
+TOTAL_word	EVALB/evalb.c	/^int TOTAL_word;                            \/* total number of word *\/$/;"	v
+TOT_cut_len	EVALB/evalb.c	/^int TOT_cut_len = DEFAULT_CUT_LEN;         \/* Cut-off length in statistics *\/$/;"	v
+Usage	EVALB/evalb.c	/^Usage()$/;"	f
+V	embed_regularize.py	/^  V = 50$/;"	v
+V	splitcross.py	/^    V = 8$/;"	v	class:SplitCrossEntropyLoss
+Variable	locked_dropout.py	/^from torch.autograd import Variable$/;"	i
+Variable	test_phrase_grammar.py	/^from torch.autograd import Variable$/;"	i
+WeightDrop	model.py	/^from weight_drop import WeightDrop$/;"	i
+WeightDrop	weight_drop.py	/^    from weight_drop import WeightDrop$/;"	i
+WeightDrop	weight_drop.py	/^class WeightDrop(torch.nn.Module):$/;"	c
+X	embed_regularize.py	/^  X = embedded_dropout(embed, words)$/;"	v
+__getitem__	data_ptb.py	/^    def __getitem__(self, item):$/;"	m	class:Dictionary	file:
+__init__	ON_LSTM.py	/^    def __init__(self, features, eps=1e-6):$/;"	m	class:LayerNorm
+__init__	ON_LSTM.py	/^    def __init__(self, in_features, out_features, bias=True, dropout=0.):$/;"	m	class:LinearDropConnect
+__init__	ON_LSTM.py	/^    def __init__(self, input_size, hidden_size, chunk_size, dropconnect=0.):$/;"	m	class:ONLSTMCell
+__init__	ON_LSTM.py	/^    def __init__(self, layer_sizes, chunk_size, dropout=0., dropconnect=0.):$/;"	m	class:ONLSTMStack
+__init__	data.py	/^    def __init__(self):$/;"	m	class:Dictionary
+__init__	data.py	/^    def __init__(self, path):$/;"	m	class:Corpus
+__init__	data_ptb.py	/^    def __init__(self):$/;"	m	class:Dictionary
+__init__	data_ptb.py	/^    def __init__(self, path):$/;"	m	class:Corpus
+__init__	locked_dropout.py	/^    def __init__(self):$/;"	m	class:LockedDropout
+__init__	model.py	/^    def __init__(self, rnn_type, ntoken, ninp, nhid, chunk_size, nlayers, dropout=0.5, dropouth=0.5, dropouti=0.5, dropoute=0.1, wdrop=0, tie_weights=False):$/;"	m	class:RNNModel
+__init__	splitcross.py	/^    def __init__(self, hidden_size, splits, verbose=False):$/;"	m	class:SplitCrossEntropyLoss
+__init__	weight_drop.py	/^    def __init__(self, module, weights, dropout=0, variational=False):$/;"	m	class:WeightDrop
+__len__	data.py	/^    def __len__(self):$/;"	m	class:Dictionary	file:
+__len__	data_ptb.py	/^    def __len__(self):$/;"	m	class:Dictionary	file:
+_setup	weight_drop.py	/^    def _setup(self):$/;"	m	class:WeightDrop
+_setweights	weight_drop.py	/^    def _setweights(self):$/;"	m	class:WeightDrop
+add_word	data.py	/^    def add_word(self, word):$/;"	m	class:Dictionary
+add_word	data_ptb.py	/^    def add_word(self, word):$/;"	m	class:Dictionary
+add_words	data_ptb.py	/^    def add_words(self, file_ids):$/;"	m	class:Corpus
+argparse	main.py	/^import argparse$/;"	i
+argparse	test_phrase_grammar.py	/^import argparse$/;"	i
+args	main.py	/^args = parser.parse_args()$/;"	v
+args	test_phrase_grammar.py	/^    args = parser.parse_args()$/;"	v
+average_depth	parse_comparison.py	/^def average_depth(parse):$/;"	f
+average_length	parse_comparison.py	/^def average_length(parse):$/;"	f
+balance	parse_comparison.py	/^def balance(parse, lowercase=False):$/;"	f
+batch_size	embed_regularize.py	/^  batch_size = 2$/;"	v
+batchify	main.py	/^from utils import batchify, get_batch, repackage_hidden$/;"	i
+batchify	test_phrase_grammar.py	/^from utils import batchify, get_batch, repackage_hidden, evalb$/;"	i
+batchify	utils.py	/^def batchify(data, bsz, args):$/;"	f
+best_val_loss	main.py	/^                best_val_loss = []$/;"	v
+best_val_loss	main.py	/^best_val_loss = []$/;"	v
+bias	splitcross.py	/^    bias = torch.nn.Parameter(torch.ones(V))$/;"	v	class:SplitCrossEntropyLoss
+bn1	EVALB/evalb.c	/^int bn1, bn2;                              \/* number of brackets *\/$/;"	v
+bn2	EVALB/evalb.c	/^int bn1, bn2;                              \/* number of brackets *\/$/;"	v
+bptt	embed_regularize.py	/^  bptt = 10$/;"	v
+bracket	EVALB/evalb.c	/^   int bracket;$/;"	m	struct:ss_term_ind	file:
+bracket1	EVALB/evalb.c	/^s_bracket bracket1[MAX_BRACKET_IN_SENT];   \/* bracket information *\/$/;"	v
+bracket2	EVALB/evalb.c	/^s_bracket bracket2[MAX_BRACKET_IN_SENT];$/;"	v
+buf_end	EVALB/evalb.c	/^    unsigned int buf_end;$/;"	m	struct:ss_bracket	file:
+buf_start	EVALB/evalb.c	/^    unsigned int buf_start;$/;"	m	struct:ss_bracket	file:
+build_tree	test_phrase_grammar.py	/^def build_tree(depth, sen):$/;"	f
+calc_result	EVALB/evalb.c	/^calc_result(unsigned char *buf1,unsigned char *buf)$/;"	f
+codecs	parse_comparison.py	/^import codecs$/;"	i
+copy	data_ptb.py	/^import copy$/;"	i
+corpus	main.py	/^    corpus = data.Corpus(args.data)$/;"	v
+corpus	main.py	/^    corpus = torch.load(fn)$/;"	v
+corpus	test_phrase_grammar.py	/^    corpus = data_ptb.Corpus(args.data)$/;"	v
+corpus	test_phrase_grammar.py	/^    corpus = torch.load(fn)$/;"	v
+corpus2idx	test_phrase_grammar.py	/^def corpus2idx(sentence):$/;"	f
+corpus_average_depth	parse_comparison.py	/^def corpus_average_depth(corpus):$/;"	f
+corpus_average_depth	test_phrase_grammar.py	/^from parse_comparison import corpus_stats_labeled, corpus_average_depth$/;"	i
+corpus_average_length	parse_comparison.py	/^def corpus_average_length(corpus):$/;"	f
+corpus_stats	parse_comparison.py	/^def corpus_stats(corpus_1, corpus_2, first_two=False, neg_pair=False, const_parse=False):$/;"	f
+corpus_stats_labeled	parse_comparison.py	/^def corpus_stats_labeled(corpus_unlabeled, corpus_labeled):$/;"	f
+corpus_stats_labeled	test_phrase_grammar.py	/^from parse_comparison import corpus_stats_labeled, corpus_average_depth$/;"	i
+count_parse	parse_comparison.py	/^def count_parse(parse, index, const_parsed=[]):$/;"	f
+crit	splitcross.py	/^    crit = SplitCrossEntropyLoss(hidden_size=H, splits=[V \/\/ 2])$/;"	v	class:SplitCrossEntropyLoss
+criterion	main.py	/^    criterion = SplitCrossEntropyLoss(args.emsize, splits=splits, verbose=False)$/;"	v
+criterion	main.py	/^    criterion = criterion.cuda()$/;"	v
+criterion	main.py	/^criterion = None$/;"	v
+criterion	test_phrase_grammar.py	/^criterion = nn.CrossEntropyLoss()$/;"	v
+cumsoftmax	ON_LSTM.py	/^def cumsoftmax(x, dim=-1):$/;"	f
+currency_tags_words	data_ptb.py	/^currency_tags_words = ['#', '$', 'C$', 'A$']$/;"	v
+data	main.py	/^import data$/;"	i
+data	test_phrase_grammar.py	/^import data$/;"	i
+data_ptb	test_phrase_grammar.py	/^import data_ptb$/;"	i
+defaultdict	splitcross.py	/^from collections import defaultdict$/;"	i
+dictionary	test_phrase_grammar.py	/^    dictionary = corpus.dictionary$/;"	v
+dsp_info	EVALB/evalb.c	/^dsp_info()$/;"	f
+ellipsis	data_ptb.py	/^ellipsis = ['*', '*?*', '0', '*T*', '*ICH*', '*U*', '*RNR*', '*EXP*', '*PPA*', '*NOT*']$/;"	v
+embed	embed_regularize.py	/^  embed = torch.nn.Embedding(V, h)$/;"	v
+embed	splitcross.py	/^    embed = torch.nn.Embedding(V, H)$/;"	v	class:SplitCrossEntropyLoss
+embedded_dropout	embed_regularize.py	/^def embedded_dropout(embed, words, dropout=0.1, scale=None):$/;"	f
+embedded_dropout	model.py	/^from embed_regularize import embedded_dropout$/;"	i
+end	EVALB/evalb.c	/^    int end;$/;"	m	struct:ss_bracket	file:
+ends	EVALB/evalb.c	/^   int ends[MAX_BRACKET_IN_SENT];$/;"	m	struct:ss_term_ind	file:
+endslen	EVALB/evalb.c	/^   int endslen;$/;"	m	struct:ss_term_ind	file:
+epoch_start_time	main.py	/^        epoch_start_time = time.time()$/;"	v
+eval_batch_size	main.py	/^eval_batch_size = 10$/;"	v
+evalb	test_phrase_grammar.py	/^from utils import batchify, get_batch, repackage_hidden, evalb$/;"	i
+evalb	utils.py	/^def evalb(pred_tree_list, targ_tree_list):$/;"	f
+evaluate	main.py	/^def evaluate(data_source, batch_size=10):$/;"	f
+evaluate	test_phrase_grammar.py	/^def evaluate(data_source, batch_size=1):$/;"	f
+example_f1	parse_comparison.py	/^def example_f1(c1, c2):$/;"	f
+example_labeled_acc	parse_comparison.py	/^def example_labeled_acc(c1, c2):$/;"	f
+file_ids	data_ptb.py	/^file_ids = ptb.fileids()$/;"	v
+filter_words	data_ptb.py	/^    def filter_words(self, tree):$/;"	m	class:Corpus
+fix_quote	EVALB/evalb.c	/^fix_quote()$/;"	f
+fn	main.py	/^    fn = os.path.join(os.environ['PT_OUTPUT_DIR'], fn)$/;"	v
+fn	main.py	/^fn = 'corpus.{}.data'.format(hashlib.md5(args.data.encode()).hexdigest())$/;"	v
+fn	test_phrase_grammar.py	/^    fn = 'corpus.{}.data'.format(hashlib.md5('data\/penn'.encode()).hexdigest())$/;"	v
+forward	ON_LSTM.py	/^    def forward(self, input, hidden):$/;"	m	class:ONLSTMStack
+forward	ON_LSTM.py	/^    def forward(self, input, hidden,$/;"	m	class:ONLSTMCell
+forward	ON_LSTM.py	/^    def forward(self, input, sample_mask=False):$/;"	m	class:LinearDropConnect
+forward	ON_LSTM.py	/^    def forward(self, x):$/;"	m	class:LayerNorm
+forward	locked_dropout.py	/^    def forward(self, x, dropout=0.5):$/;"	m	class:LockedDropout
+forward	model.py	/^    def forward(self, input, hidden, return_h=False):$/;"	m	class:RNNModel
+forward	splitcross.py	/^    def forward(self, weight, bias, hiddens, targets, verbose=False):$/;"	m	class:SplitCrossEntropyLoss
+forward	weight_drop.py	/^    def forward(self, *args):$/;"	m	class:WeightDrop
+full_transitions	parse_comparison.py	/^def full_transitions(N, left_full=False, right_full=False):$/;"	f
+get_batch	main.py	/^from utils import batchify, get_batch, repackage_hidden$/;"	i
+get_batch	test_phrase_grammar.py	/^from utils import batchify, get_batch, repackage_hidden, evalb$/;"	i
+get_batch	utils.py	/^def get_batch(source, i, args, seq_len=None, evaluation=False):$/;"	f
+get_brackets	test_phrase_grammar.py	/^def get_brackets(tree, idx=0):$/;"	f
+gflags	parse_comparison.py	/^import gflags$/;"	i
+glob	parse_comparison.py	/^import glob$/;"	i
+h	embed_regularize.py	/^  h = 4$/;"	v
+h0	weight_drop.py	/^    h0 = None$/;"	v
+hashlib	main.py	/^import hashlib$/;"	i
+hashlib	test_phrase_grammar.py	/^    import hashlib$/;"	i
+help	main.py	/^                    help='Use philly cluster')$/;"	v
+help	main.py	/^                    help='When (which epochs) to divide the learning rate by 10 - accepts multiple')$/;"	v
+help	main.py	/^                    help='When (which epochs) to switch to finetuning')$/;"	v
+help	main.py	/^                    help='alpha L2 regularization on RNN activation (alpha = 0 means no regularization)')$/;"	v
+help	main.py	/^                    help='amount of weight dropout to apply to the RNN hidden to hidden matrix')$/;"	v
+help	main.py	/^                    help='batch size')$/;"	v
+help	main.py	/^                    help='beta slowness regularization applied on RNN activiation (beta = 0 means no regularization)')$/;"	v
+help	main.py	/^                    help='dropout applied to layers (0 = no dropout)')$/;"	v
+help	main.py	/^                    help='dropout for input embedding layers (0 = no dropout)')$/;"	v
+help	main.py	/^                    help='dropout for rnn layers (0 = no dropout)')$/;"	v
+help	main.py	/^                    help='dropout to remove words from embedding layer (0 = no dropout)')$/;"	v
+help	main.py	/^                    help='gradient clipping')$/;"	v
+help	main.py	/^                    help='initial learning rate')$/;"	v
+help	main.py	/^                    help='location of the data corpus')$/;"	v
+help	main.py	/^                    help='number of hidden units per layer')$/;"	v
+help	main.py	/^                    help='number of layers')$/;"	v
+help	main.py	/^                    help='number of units per chunk')$/;"	v
+help	main.py	/^                    help='optimizer to use (sgd, adam)')$/;"	v
+help	main.py	/^                    help='path of model to resume')$/;"	v
+help	main.py	/^                    help='path to save the final model')$/;"	v
+help	main.py	/^                    help='random seed')$/;"	v
+help	main.py	/^                    help='report interval')$/;"	v
+help	main.py	/^                    help='sequence length')$/;"	v
+help	main.py	/^                    help='size of word embeddings')$/;"	v
+help	main.py	/^                    help='type of recurrent net (LSTM, QRNN, GRU)')$/;"	v
+help	main.py	/^                    help='upper epoch limit')$/;"	v
+help	main.py	/^                    help='use CUDA')$/;"	v
+help	main.py	/^                    help='weight decay applied to all weights')$/;"	v
+help	test_phrase_grammar.py	/^                        help='location of the data corpus')$/;"	v
+help	test_phrase_grammar.py	/^                        help='model checkpoint to use')$/;"	v
+help	test_phrase_grammar.py	/^                        help='random seed')$/;"	v
+help	test_phrase_grammar.py	/^                        help='use CUDA')$/;"	v
+help	test_phrase_grammar.py	/^                        help='use WSJ10')$/;"	v
+index	EVALB/evalb.c	/^	int index;$/;"	m	struct:ss_term_ind	file:
+individual_result	EVALB/evalb.c	/^individual_result(wn1,bn1,bn2,match,crossing,correct_tag)$/;"	f
+init	EVALB/evalb.c	/^init()$/;"	f
+init_global	EVALB/evalb.c	/^init_global()$/;"	f
+init_hidden	ON_LSTM.py	/^    def init_hidden(self, bsz):$/;"	m	class:ONLSTMCell
+init_hidden	ON_LSTM.py	/^    def init_hidden(self, bsz):$/;"	m	class:ONLSTMStack
+init_hidden	model.py	/^    def init_hidden(self, bsz):$/;"	m	class:RNNModel
+init_weights	model.py	/^    def init_weights(self):$/;"	m	class:RNNModel
+is_deletelabel	EVALB/evalb.c	/^is_deletelabel(s)$/;"	f
+is_deletelabel_for_length	EVALB/evalb.c	/^is_deletelabel_for_length(s)$/;"	f
+is_quote_term	EVALB/evalb.c	/^is_quote_term(s,w)$/;"	f
+is_terminator	EVALB/evalb.c	/^is_terminator(c)$/;"	f
+json	parse_comparison.py	/^import json$/;"	i
+label	EVALB/evalb.c	/^    char label[MAX_LABEL_LEN];$/;"	m	struct:ss_bracket	file:
+label	EVALB/evalb.c	/^    char label[MAX_LABEL_LEN];$/;"	m	struct:ss_terminal	file:
+label_comp	EVALB/evalb.c	/^label_comp(s1,s2)$/;"	f
+lin	weight_drop.py	/^    lin = WeightDrop(torch.nn.Linear(10, 10), ['weight'], dropout=0.9)$/;"	v
+list2tree	utils.py	/^        def list2tree(node):$/;"	f	function:evalb
+load_embeddings_txt	utils.py	/^def load_embeddings_txt(path):$/;"	f
+logprob	splitcross.py	/^    def logprob(self, weight, bias, hiddens, splits=None, softmaxed_head_res=None, verbose=False):$/;"	m	class:SplitCrossEntropyLoss
+lr	main.py	/^lr = args.lr$/;"	v
+lr_scheduler	main.py	/^import torch.optim.lr_scheduler as lr_scheduler$/;"	i
+lstm	ON_LSTM.py	/^    lstm = ONLSTMStack([10, 10, 10], chunk_size=10)$/;"	v	class:ONLSTMStack
+main	EVALB/evalb.c	/^main(argc,argv)$/;"	f
+massage_data	EVALB/evalb.c	/^massage_data()$/;"	f
+math	main.py	/^import math$/;"	i
+math	parse_comparison.py	/^import math$/;"	i
+mathops	parse_comparison.py	/^mathops = ["[MAX", "[MIN", "[MED", "[SM"]$/;"	v
+matplotlib	test_phrase_grammar.py	/^import matplotlib.pyplot as plt$/;"	i
+mean	test_phrase_grammar.py	/^def mean(x):$/;"	f
+model	main.py	/^    model = model.cuda()$/;"	v
+model	main.py	/^import model$/;"	i
+model	main.py	/^model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid, args.chunk_size, args.nlayers,$/;"	v
+model_load	main.py	/^def model_load(fn):$/;"	f
+model_save	main.py	/^def model_save(fn):$/;"	f
+modify_label	EVALB/evalb.c	/^modify_label(label)$/;"	f
+narg	EVALB/evalb.c	/^narg(s)$/;"	f
+nltk	data_ptb.py	/^import nltk$/;"	i
+nltk	test_phrase_grammar.py	/^import nltk$/;"	i
+nltk	utils.py	/^    import nltk$/;"	i
+nn	ON_LSTM.py	/^import torch.nn as nn$/;"	i
+nn	ON_LSTM.py	/^import torch.nn.functional as F$/;"	i
+nn	locked_dropout.py	/^import torch.nn as nn$/;"	i
+nn	main.py	/^import torch.nn as nn$/;"	i
+nn	model.py	/^import torch.nn as nn$/;"	i
+nn	splitcross.py	/^import torch.nn as nn$/;"	i
+nn	test_phrase_grammar.py	/^import torch.nn as nn$/;"	i
+np	embed_regularize.py	/^import numpy as np$/;"	i
+np	main.py	/^import numpy as np$/;"	i
+np	splitcross.py	/^import numpy as np$/;"	i
+ntokens	main.py	/^ntokens = len(corpus.dictionary)$/;"	v
+numpy	data_ptb.py	/^import numpy$/;"	i
+numpy	test_phrase_grammar.py	/^import numpy$/;"	i
+optim	main.py	/^import torch.optim.lr_scheduler as lr_scheduler$/;"	i
+optimizer	main.py	/^                optimizer = torch.optim.ASGD(model.parameters(), lr=args.lr, t0=0, lambd=0., weight_decay=args.wdecay)$/;"	v
+optimizer	main.py	/^        optimizer = torch.optim.Adam(params, lr=args.lr, betas=(0, 0.999), eps=1e-9, weight_decay=args.wdecay)$/;"	v
+optimizer	main.py	/^        optimizer = torch.optim.SGD(params, lr=args.lr, weight_decay=args.wdecay)$/;"	v
+optimizer	main.py	/^    optimizer = None$/;"	v
+optimizer	splitcross.py	/^    optimizer = torch.optim.SGD(list(embed.parameters()) + list(crit.parameters()), lr=1)$/;"	v	class:SplitCrossEntropyLoss
+origX	embed_regularize.py	/^  origX = embed(words)$/;"	v
+os	data.py	/^import os$/;"	i
+os	data_ptb.py	/^import os$/;"	i
+os	main.py	/^import os$/;"	i
+os	utils.py	/^    import os$/;"	i
+params	main.py	/^params = list(model.parameters()) + list(criterion.parameters())$/;"	v
+parser	main.py	/^parser = argparse.ArgumentParser(description='PyTorch PennTreeBank RNN\/LSTM Language Model')$/;"	v
+parser	test_phrase_grammar.py	/^    parser = argparse.ArgumentParser(description='PyTorch PTB Language Model')$/;"	v
+pickle	data_ptb.py	/^import pickle$/;"	i
+plt	test_phrase_grammar.py	/^import matplotlib.pyplot as plt$/;"	i
+popb	EVALB/evalb.c	/^popb()$/;"	f
+print_head	EVALB/evalb.c	/^print_head()$/;"	f
+print_total	EVALB/evalb.c	/^print_total()$/;"	f
+process_str_tree	utils.py	/^        def process_str_tree(str_tree):$/;"	f	function:evalb
+ptb	data_ptb.py	/^from nltk.corpus import ptb$/;"	i
+punctuation_tags	data_ptb.py	/^punctuation_tags = ['.', ',', ':', '-LRB-', '-RRB-', '\\'\\'', '``']$/;"	v
+punctuation_words	data_ptb.py	/^punctuation_words = ['.', ',', ':', '-LRB-', '-RRB-', '\\'\\'', '``', '--', ';', '-', '?', '!', '...', '-LCB-', '-RCB-']$/;"	v
+pushb	EVALB/evalb.c	/^pushb(item)$/;"	f
+quotterm1	EVALB/evalb.c	/^s_term_ind quotterm1[MAX_QUOTE_TERM];      \/* special terminals ("'","POS") *\/$/;"	v
+quotterm2	EVALB/evalb.c	/^s_term_ind quotterm2[MAX_QUOTE_TERM];$/;"	v
+r_bn1	EVALB/evalb.c	/^int r_bn1, r_bn2;                          \/* number of brackets *\/$/;"	v
+r_bn2	EVALB/evalb.c	/^int r_bn1, r_bn2;                          \/* number of brackets *\/$/;"	v
+r_wn1	EVALB/evalb.c	/^int r_wn1;                                 \/* number of words in sentence  *\/$/;"	v
+random	parse_comparison.py	/^import random$/;"	i
+randomhash	main.py	/^randomhash = ''.join(str(time.time()).split('.'))$/;"	v
+randomize	parse_comparison.py	/^def randomize(parse):$/;"	f
+re	data_ptb.py	/^import re$/;"	i
+re	parse_comparison.py	/^import re$/;"	i
+re	test_phrase_grammar.py	/^import re$/;"	i
+re	utils.py	/^    import re$/;"	i
+read_line	EVALB/evalb.c	/^read_line(buff, terminal, quotterm, wn, bracket, bn)$/;"	f
+read_listops_report	parse_comparison.py	/^def read_listops_report(path):$/;"	f
+read_nli_report	parse_comparison.py	/^def read_nli_report(path):$/;"	f
+read_nli_report_padded	parse_comparison.py	/^def read_nli_report_padded(path):$/;"	f
+read_parameter_file	EVALB/evalb.c	/^read_parameter_file(filename)$/;"	f
+read_ptb_report	parse_comparison.py	/^def read_ptb_report(path):$/;"	f
+read_sst_report	parse_comparison.py	/^def read_sst_report(path):$/;"	f
+rebuild_by_freq	data_ptb.py	/^    def rebuild_by_freq(self, thd=3):$/;"	m	class:Dictionary
+reinsert_term	EVALB/evalb.c	/^reinsert_term(quot,terminal,bracket,wn)$/;"	f
+repackage_hidden	main.py	/^from utils import batchify, get_batch, repackage_hidden$/;"	i
+repackage_hidden	test_phrase_grammar.py	/^from utils import batchify, get_batch, repackage_hidden, evalb$/;"	i
+repackage_hidden	utils.py	/^def repackage_hidden(h):$/;"	f
+reset	model.py	/^    def reset(self):$/;"	m	class:RNNModel
+rest_file_ids	data_ptb.py	/^rest_file_ids = []$/;"	v
+result	EVALB/evalb.c	/^    int  result;                 \/* 0: unmatch, 1:match, 5:delete 9:undef *\/$/;"	m	struct:ss_bracket	file:
+result	EVALB/evalb.c	/^    int  result;                \/* 0:unmatch, 1:match, 9:undef *\/$/;"	m	struct:ss_terminal	file:
+roundup2	parse_comparison.py	/^def roundup2(N):$/;"	f
+run	parse_comparison.py	/^def run():$/;"	f
+run1	weight_drop.py	/^    run1 = [x.sum() for x in lin(x).data]$/;"	v
+run1	weight_drop.py	/^    run1 = [x.sum() for x in wdrnn(x, h0)[0].data]$/;"	v
+run2	weight_drop.py	/^    run2 = [x.sum() for x in lin(x).data]$/;"	v
+run2	weight_drop.py	/^    run2 = [x.sum() for x in wdrnn(x, h0)[0].data]$/;"	v
+s1	EVALB/evalb.c	/^    char *s1;$/;"	m	struct:ss_equiv	file:
+s2	EVALB/evalb.c	/^    char *s2;$/;"	m	struct:ss_equiv	file:
+s_bracket	EVALB/evalb.c	/^} s_bracket;$/;"	t	typeref:struct:ss_bracket	file:
+s_equiv	EVALB/evalb.c	/^} s_equiv;$/;"	t	typeref:struct:ss_equiv	file:
+s_term_ind	EVALB/evalb.c	/^} s_term_ind;$/;"	t	typeref:struct:ss_term_ind	file:
+s_terminal	EVALB/evalb.c	/^} s_terminal;$/;"	t	typeref:struct:ss_terminal	file:
+sample_mask	ON_LSTM.py	/^    def sample_mask(self):$/;"	m	class:LinearDropConnect
+sample_masks	ON_LSTM.py	/^    def sample_masks(self):$/;"	m	class:ONLSTMCell
+scheduler	main.py	/^        scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, 'min', 0.5, patience=2, threshold=0)$/;"	v
+set_param	EVALB/evalb.c	/^set_param(param,value)$/;"	f
+spaceify	parse_comparison.py	/^def spaceify(parse):$/;"	f
+split_on_targets	splitcross.py	/^    def split_on_targets(self, hiddens, targets):$/;"	m	class:SplitCrossEntropyLoss
+splits	main.py	/^        splits = [2800, 20000, 76000]$/;"	v
+splits	main.py	/^        splits = [4200, 35000, 180000]$/;"	v
+splits	main.py	/^    splits = []$/;"	v
+ss_bracket	EVALB/evalb.c	/^typedef struct ss_bracket {$/;"	s	file:
+ss_equiv	EVALB/evalb.c	/^typedef struct ss_equiv {$/;"	s	file:
+ss_term_ind	EVALB/evalb.c	/^typedef struct ss_term_ind {$/;"	s	file:
+ss_terminal	EVALB/evalb.c	/^typedef struct ss_terminal {$/;"	s	file:
+stack	EVALB/evalb.c	/^int stack[MAX_BRACKET_IN_SENT];$/;"	v
+stack_top	EVALB/evalb.c	/^int stack_top;$/;"	v
+stackempty	EVALB/evalb.c	/^stackempty()$/;"	f
+start	EVALB/evalb.c	/^    int start;$/;"	m	struct:ss_bracket	file:
+stored_loss	main.py	/^                stored_loss = val_loss$/;"	v
+stored_loss	main.py	/^                stored_loss = val_loss2$/;"	v
+stored_loss	main.py	/^stored_loss = 100000000$/;"	v
+subprocess	utils.py	/^    import subprocess$/;"	i
+sys	main.py	/^                import sys$/;"	i
+sys	parse_comparison.py	/^import sys$/;"	i
+tempfile	utils.py	/^    import tempfile$/;"	i
+term	EVALB/evalb.c	/^	s_terminal term;$/;"	m	struct:ss_term_ind	file:
+terminal1	EVALB/evalb.c	/^s_terminal terminal1[MAX_WORD_IN_SENT];    \/* terminal information *\/$/;"	v
+terminal2	EVALB/evalb.c	/^s_terminal terminal2[MAX_WORD_IN_SENT];$/;"	v
+test	test_phrase_grammar.py	/^def test(model, corpus, cuda, prt=False):$/;"	f
+test_batch_size	main.py	/^test_batch_size = 1$/;"	v
+test_data	main.py	/^test_data = batchify(corpus.test, test_batch_size, args)$/;"	v
+test_file_ids	data_ptb.py	/^test_file_ids = []$/;"	v
+test_loss	main.py	/^test_loss = evaluate(test_data, test_batch_size)$/;"	v
+time	main.py	/^import time$/;"	i
+tmp	main.py	/^            tmp = {}$/;"	v
+to_indexed_contituents	parse_comparison.py	/^def to_indexed_contituents(parse, const_parse):$/;"	f
+to_indexed_contituents_labeled	parse_comparison.py	/^def to_indexed_contituents_labeled(parse):$/;"	f
+to_latex	parse_comparison.py	/^def to_latex(parse):$/;"	f
+to_lb	parse_comparison.py	/^def to_lb(gt_table):$/;"	f
+to_rb	parse_comparison.py	/^def to_rb(gt_table):$/;"	f
+to_string	parse_comparison.py	/^def to_string(parse):$/;"	f
+tokenize	data.py	/^    def tokenize(self, path):$/;"	m	class:Corpus
+tokenize	data_ptb.py	/^    def tokenize(self, file_ids):$/;"	m	class:Corpus
+tokenize_parse	parse_comparison.py	/^def tokenize_parse(parse):$/;"	f
+tokens_to_lb	parse_comparison.py	/^def tokens_to_lb(tree):$/;"	f
+tokens_to_rb	parse_comparison.py	/^def tokens_to_rb(tree):$/;"	f
+torch	ON_LSTM.py	/^import torch$/;"	i
+torch	ON_LSTM.py	/^import torch.nn as nn$/;"	i
+torch	ON_LSTM.py	/^import torch.nn.functional as F$/;"	i
+torch	data.py	/^import torch$/;"	i
+torch	data_ptb.py	/^import torch$/;"	i
+torch	embed_regularize.py	/^import torch$/;"	i
+torch	locked_dropout.py	/^import torch$/;"	i
+torch	locked_dropout.py	/^import torch.nn as nn$/;"	i
+torch	main.py	/^import torch$/;"	i
+torch	main.py	/^import torch.nn as nn$/;"	i
+torch	main.py	/^import torch.optim.lr_scheduler as lr_scheduler$/;"	i
+torch	model.py	/^import torch$/;"	i
+torch	model.py	/^import torch.nn as nn$/;"	i
+torch	splitcross.py	/^import torch$/;"	i
+torch	splitcross.py	/^import torch.nn as nn$/;"	i
+torch	test_phrase_grammar.py	/^import torch$/;"	i
+torch	test_phrase_grammar.py	/^import torch.nn as nn$/;"	i
+torch	utils.py	/^import torch$/;"	i
+torch	weight_drop.py	/^    import torch$/;"	i
+torch	weight_drop.py	/^import torch$/;"	i
+total_params	main.py	/^total_params = sum(x.size()[0] * x.size()[1] if len(x.size()) > 1 else x.size()[0] for x in params if x.size())$/;"	v
+train	main.py	/^def train():$/;"	f
+train_data	main.py	/^train_data = batchify(corpus.train, args.batch_size, args)$/;"	v
+train_file_ids	data_ptb.py	/^train_file_ids = []$/;"	v
+tree2list	data_ptb.py	/^        def tree2list(tree):$/;"	f	function:Corpus.tokenize
+unpad	parse_comparison.py	/^def unpad(parse):$/;"	f
+val_data	main.py	/^val_data = batchify(corpus.valid, eval_batch_size, args)$/;"	v
+val_loss	main.py	/^            val_loss = evaluate(val_data, eval_batch_size)$/;"	v
+val_loss2	main.py	/^            val_loss2 = evaluate(val_data, eval_batch_size)$/;"	v
+valid_file_ids	data_ptb.py	/^valid_file_ids = []$/;"	v
+wdrnn	weight_drop.py	/^    wdrnn = WeightDrop(torch.nn.LSTM(10, 10), ['weight_hh_l0'], dropout=0.9)$/;"	v
+widget_demagnetizer_y2k_edition	weight_drop.py	/^    def widget_demagnetizer_y2k_edition(*args, **kwargs):$/;"	m	class:WeightDrop
+wn1	EVALB/evalb.c	/^int wn1, wn2;                              \/* number of words in sentence  *\/$/;"	v
+wn2	EVALB/evalb.c	/^int wn1, wn2;                              \/* number of words in sentence  *\/$/;"	v
+word	EVALB/evalb.c	/^    char word[MAX_WORD_LEN];$/;"	m	struct:ss_terminal	file:
+word_comp	EVALB/evalb.c	/^word_comp(s1,s2)$/;"	f
+word_tags	data_ptb.py	/^word_tags = ['CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNS', 'NNP', 'NNPS', 'PDT',$/;"	v
+word_tags	test_phrase_grammar.py	/^from data_ptb import word_tags$/;"	i
+words	embed_regularize.py	/^  words = np.random.random_integers(low=0, high=V-1, size=(batch_size, bptt))$/;"	v
+words	embed_regularize.py	/^  words = torch.LongTensor(words)$/;"	v
+wraps	weight_drop.py	/^from functools import wraps$/;"	i
+x	ON_LSTM.py	/^    x = torch.Tensor(10, 10, 10)$/;"	v	class:ONLSTMStack
+x	weight_drop.py	/^    x = torch.autograd.Variable(torch.randn(2, 1, 10)).cuda()$/;"	v
