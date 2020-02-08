@@ -27,17 +27,21 @@ EQ_word_n	EVALB/evalb.c	/^int EQ_word_n = 0;$/;"	v
 Error	EVALB/evalb.c	/^Error(s,arg1,arg2,arg3)$/;"	f
 Error_count	EVALB/evalb.c	/^int Error_count = 0;                       \/* Error count *\/$/;"	v
 F	ON_LSTM.py	/^import torch.nn.functional as F$/;"	i
+F	nm_lstm.py	/^import torch.nn.functional as F$/;"	i
 FLAGS	parse_comparison.py	/^FLAGS = gflags.FLAGS$/;"	v
 F_label	EVALB/evalb.c	/^int F_label    = 1;                 $/;"	v
 Fatal	EVALB/evalb.c	/^Fatal(s,arg1,arg2,arg3)$/;"	f
 H	splitcross.py	/^    H = 10$/;"	v	class:SplitCrossEntropyLoss
 LABEL_MAP	parse_comparison.py	/^LABEL_MAP = {'entailment': 0, 'neutral': 1, 'contradiction': 2}$/;"	v
 LayerNorm	ON_LSTM.py	/^class LayerNorm(nn.Module):$/;"	c
+LayerNorm	nm_lstm.py	/^class LayerNorm(nn.Module):$/;"	c
 Line	EVALB/evalb.c	/^int Line;                                  \/* line number *\/$/;"	v
 LinearDropConnect	ON_LSTM.py	/^class LinearDropConnect(nn.Linear):$/;"	c
+LinearDropConnect	nm_lstm.py	/^class LinearDropConnect(nn.Linear):$/;"	c
 LockedDropout	ON_LSTM.py	/^from locked_dropout import LockedDropout$/;"	i
 LockedDropout	locked_dropout.py	/^class LockedDropout(nn.Module):$/;"	c
 LockedDropout	model.py	/^from locked_dropout import LockedDropout$/;"	i
+LockedDropout	nm_lstm.py	/^from locked_dropout import LockedDropout$/;"	i
 MAX_BRACKET_IN_SENT	EVALB/evalb.c	63;"	d	file:
 MAX_DELETE_LABEL	EVALB/evalb.c	68;"	d	file:
 MAX_EQ_LABEL	EVALB/evalb.c	69;"	d	file:
@@ -55,6 +59,7 @@ N	splitcross.py	/^    N = 100$/;"	v	class:SplitCrossEntropyLoss
 ONLSTMCell	ON_LSTM.py	/^class ONLSTMCell(nn.Module):$/;"	c
 ONLSTMStack	ON_LSTM.py	/^class ONLSTMStack(nn.Module):$/;"	c
 ONLSTMStack	model.py	/^from ON_LSTM import ONLSTMStack$/;"	i
+ONLSTMStack	nm_lstm.py	/^class ONLSTMStack(nn.Module):$/;"	c
 Parameter	weight_drop.py	/^from torch.nn import Parameter$/;"	i
 Quote_term	EVALB/evalb.c	/^char *Quote_term[MAX_QUOTE_TERM];$/;"	v
 Quote_term_n	EVALB/evalb.c	/^int Quote_term_n = 0;$/;"	v
@@ -107,7 +112,11 @@ __init__	data.py	/^    def __init__(self, path):$/;"	m	class:Corpus
 __init__	data_ptb.py	/^    def __init__(self):$/;"	m	class:Dictionary
 __init__	data_ptb.py	/^    def __init__(self, path):$/;"	m	class:Corpus
 __init__	locked_dropout.py	/^    def __init__(self):$/;"	m	class:LockedDropout
-__init__	model.py	/^    def __init__(self, rnn_type, ntoken, ninp, nhid, chunk_size, nlayers, dropout=0.5, dropouth=0.5, dropouti=0.5, dropoute=0.1, wdrop=0, tie_weights=False):$/;"	m	class:RNNModel
+__init__	model.py	/^    def __init__(self, rnn_type, ntoken, ninp, nhid, chunk_size, nlayers,$/;"	m	class:RNNModel
+__init__	nm_lstm.py	/^    def __init__(self, features, eps=1e-6):$/;"	m	class:LayerNorm
+__init__	nm_lstm.py	/^    def __init__(self, in_features, out_features, bias=True, dropout=0.):$/;"	m	class:LinearDropConnect
+__init__	nm_lstm.py	/^    def __init__(self, input_size, hidden_size, chunk_size, dropconnect=0.):$/;"	m	class:nmONLSTMCell
+__init__	nm_lstm.py	/^    def __init__(self, layer_sizes, chunk_size, dropout=0., dropconnect=0.):$/;"	m	class:ONLSTMStack
 __init__	splitcross.py	/^    def __init__(self, hidden_size, splits, verbose=False):$/;"	m	class:SplitCrossEntropyLoss
 __init__	weight_drop.py	/^    def __init__(self, module, weights, dropout=0, variational=False):$/;"	m	class:WeightDrop
 __len__	data.py	/^    def __len__(self):$/;"	m	class:Dictionary	file:
@@ -161,6 +170,7 @@ criterion	main.py	/^    criterion = criterion.cuda()$/;"	v
 criterion	main.py	/^criterion = None$/;"	v
 criterion	test_phrase_grammar.py	/^criterion = nn.CrossEntropyLoss()$/;"	v
 cumsoftmax	ON_LSTM.py	/^def cumsoftmax(x, dim=-1):$/;"	f
+cumsoftmax	nm_lstm.py	/^def cumsoftmax(x, dim=-1):$/;"	f
 currency_tags_words	data_ptb.py	/^currency_tags_words = ['#', '$', 'C$', 'A$']$/;"	v
 data	main.py	/^import data$/;"	i
 data	test_phrase_grammar.py	/^import data$/;"	i
@@ -196,6 +206,10 @@ forward	ON_LSTM.py	/^    def forward(self, input, sample_mask=False):$/;"	m	clas
 forward	ON_LSTM.py	/^    def forward(self, x):$/;"	m	class:LayerNorm
 forward	locked_dropout.py	/^    def forward(self, x, dropout=0.5):$/;"	m	class:LockedDropout
 forward	model.py	/^    def forward(self, input, hidden, return_h=False):$/;"	m	class:RNNModel
+forward	nm_lstm.py	/^    def forward(self, input, hidden):$/;"	m	class:ONLSTMStack
+forward	nm_lstm.py	/^    def forward(self, input, hidden,$/;"	m	class:nmONLSTMCell
+forward	nm_lstm.py	/^    def forward(self, input, sample_mask=False):$/;"	m	class:LinearDropConnect
+forward	nm_lstm.py	/^    def forward(self, x):$/;"	m	class:LayerNorm
 forward	splitcross.py	/^    def forward(self, weight, bias, hiddens, targets, verbose=False):$/;"	m	class:SplitCrossEntropyLoss
 forward	weight_drop.py	/^    def forward(self, *args):$/;"	m	class:WeightDrop
 full_transitions	parse_comparison.py	/^def full_transitions(N, left_full=False, right_full=False):$/;"	f
@@ -203,12 +217,14 @@ get_batch	main.py	/^from utils import batchify, get_batch, repackage_hidden$/;"	
 get_batch	test_phrase_grammar.py	/^from utils import batchify, get_batch, repackage_hidden, evalb$/;"	i
 get_batch	utils.py	/^def get_batch(source, i, args, seq_len=None, evaluation=False):$/;"	f
 get_brackets	test_phrase_grammar.py	/^def get_brackets(tree, idx=0):$/;"	f
+get_future_state_params	nm_lstm.py	/^    def get_future_state_params(self):$/;"	m	class:nmONLSTMCell
 gflags	parse_comparison.py	/^import gflags$/;"	i
 glob	parse_comparison.py	/^import glob$/;"	i
 h	embed_regularize.py	/^  h = 4$/;"	v
 h0	weight_drop.py	/^    h0 = None$/;"	v
 hashlib	main.py	/^import hashlib$/;"	i
 hashlib	test_phrase_grammar.py	/^    import hashlib$/;"	i
+help	main.py	/^                    help='(LSTM, QRNN, GRU, NMLSTM)')$/;"	v
 help	main.py	/^                    help='Use philly cluster')$/;"	v
 help	main.py	/^                    help='When (which epochs) to divide the learning rate by 10 - accepts multiple')$/;"	v
 help	main.py	/^                    help='When (which epochs) to switch to finetuning')$/;"	v
@@ -233,7 +249,6 @@ help	main.py	/^                    help='random seed')$/;"	v
 help	main.py	/^                    help='report interval')$/;"	v
 help	main.py	/^                    help='sequence length')$/;"	v
 help	main.py	/^                    help='size of word embeddings')$/;"	v
-help	main.py	/^                    help='type of recurrent net (LSTM, QRNN, GRU)')$/;"	v
 help	main.py	/^                    help='upper epoch limit')$/;"	v
 help	main.py	/^                    help='use CUDA')$/;"	v
 help	main.py	/^                    help='weight decay applied to all weights')$/;"	v
@@ -249,6 +264,8 @@ init_global	EVALB/evalb.c	/^init_global()$/;"	f
 init_hidden	ON_LSTM.py	/^    def init_hidden(self, bsz):$/;"	m	class:ONLSTMCell
 init_hidden	ON_LSTM.py	/^    def init_hidden(self, bsz):$/;"	m	class:ONLSTMStack
 init_hidden	model.py	/^    def init_hidden(self, bsz):$/;"	m	class:RNNModel
+init_hidden	nm_lstm.py	/^    def init_hidden(self, bsz):$/;"	m	class:ONLSTMStack
+init_hidden	nm_lstm.py	/^    def init_hidden(self, bsz):$/;"	m	class:nmONLSTMCell
 init_weights	model.py	/^    def init_weights(self):$/;"	m	class:RNNModel
 is_deletelabel	EVALB/evalb.c	/^is_deletelabel(s)$/;"	f
 is_deletelabel_for_length	EVALB/evalb.c	/^is_deletelabel_for_length(s)$/;"	f
@@ -262,9 +279,12 @@ lin	weight_drop.py	/^    lin = WeightDrop(torch.nn.Linear(10, 10), ['weight'], d
 list2tree	utils.py	/^        def list2tree(node):$/;"	f	function:evalb
 load_embeddings_txt	utils.py	/^def load_embeddings_txt(path):$/;"	f
 logprob	splitcross.py	/^    def logprob(self, weight, bias, hiddens, splits=None, softmaxed_head_res=None, verbose=False):$/;"	m	class:SplitCrossEntropyLoss
+loss_fn	main.py	/^    loss_fn = nm_lstmloss$/;"	v
+loss_fn	main.py	/^    loss_fn = standard_loss$/;"	v
 lr	main.py	/^lr = args.lr$/;"	v
 lr_scheduler	main.py	/^import torch.optim.lr_scheduler as lr_scheduler$/;"	i
 lstm	ON_LSTM.py	/^    lstm = ONLSTMStack([10, 10, 10], chunk_size=10)$/;"	v	class:ONLSTMStack
+lstm	nm_lstm.py	/^    lstm = ONLSTMStack([10, 10, 10], chunk_size=10)$/;"	v	class:ONLSTMStack
 main	EVALB/evalb.c	/^main(argc,argv)$/;"	f
 massage_data	EVALB/evalb.c	/^massage_data()$/;"	f
 math	main.py	/^import math$/;"	i
@@ -272,9 +292,9 @@ math	parse_comparison.py	/^import math$/;"	i
 mathops	parse_comparison.py	/^mathops = ["[MAX", "[MIN", "[MED", "[SM"]$/;"	v
 matplotlib	test_phrase_grammar.py	/^import matplotlib.pyplot as plt$/;"	i
 mean	test_phrase_grammar.py	/^def mean(x):$/;"	f
+model	main.py	/^    model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid,$/;"	v
 model	main.py	/^    model = model.cuda()$/;"	v
 model	main.py	/^import model$/;"	i
-model	main.py	/^model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid, args.chunk_size, args.nlayers,$/;"	v
 model_load	main.py	/^def model_load(fn):$/;"	f
 model_save	main.py	/^def model_save(fn):$/;"	f
 modify_label	EVALB/evalb.c	/^modify_label(label)$/;"	f
@@ -282,11 +302,16 @@ narg	EVALB/evalb.c	/^narg(s)$/;"	f
 nltk	data_ptb.py	/^import nltk$/;"	i
 nltk	test_phrase_grammar.py	/^import nltk$/;"	i
 nltk	utils.py	/^    import nltk$/;"	i
+nmONLSTMCell	nm_lstm.py	/^class nmONLSTMCell(nn.Module):$/;"	c
+nm_forward	nm_lstm.py	/^    def nm_forward(self, h_1):$/;"	m	class:nmONLSTMCell
+nm_lstmloss	main.py	/^def nm_lstmloss(args, ntokens, criterion, output, targets, hs):$/;"	f
 nn	ON_LSTM.py	/^import torch.nn as nn$/;"	i
 nn	ON_LSTM.py	/^import torch.nn.functional as F$/;"	i
 nn	locked_dropout.py	/^import torch.nn as nn$/;"	i
 nn	main.py	/^import torch.nn as nn$/;"	i
 nn	model.py	/^import torch.nn as nn$/;"	i
+nn	nm_lstm.py	/^import torch.nn as nn$/;"	i
+nn	nm_lstm.py	/^import torch.nn.functional as F$/;"	i
 nn	splitcross.py	/^import torch.nn as nn$/;"	i
 nn	test_phrase_grammar.py	/^import torch.nn as nn$/;"	i
 np	embed_regularize.py	/^import numpy as np$/;"	i
@@ -360,7 +385,9 @@ s_equiv	EVALB/evalb.c	/^} s_equiv;$/;"	t	typeref:struct:ss_equiv	file:
 s_term_ind	EVALB/evalb.c	/^} s_term_ind;$/;"	t	typeref:struct:ss_term_ind	file:
 s_terminal	EVALB/evalb.c	/^} s_terminal;$/;"	t	typeref:struct:ss_terminal	file:
 sample_mask	ON_LSTM.py	/^    def sample_mask(self):$/;"	m	class:LinearDropConnect
+sample_mask	nm_lstm.py	/^    def sample_mask(self):$/;"	m	class:LinearDropConnect
 sample_masks	ON_LSTM.py	/^    def sample_masks(self):$/;"	m	class:ONLSTMCell
+sample_masks	nm_lstm.py	/^    def sample_masks(self):$/;"	m	class:nmONLSTMCell
 scheduler	main.py	/^        scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, 'min', 0.5, patience=2, threshold=0)$/;"	v
 set_param	EVALB/evalb.c	/^set_param(param,value)$/;"	f
 spaceify	parse_comparison.py	/^def spaceify(parse):$/;"	f
@@ -375,6 +402,7 @@ ss_terminal	EVALB/evalb.c	/^typedef struct ss_terminal {$/;"	s	file:
 stack	EVALB/evalb.c	/^int stack[MAX_BRACKET_IN_SENT];$/;"	v
 stack_top	EVALB/evalb.c	/^int stack_top;$/;"	v
 stackempty	EVALB/evalb.c	/^stackempty()$/;"	f
+standard_loss	main.py	/^def standard_loss(args, ntokens, criterion, output, targets, hs):$/;"	f
 start	EVALB/evalb.c	/^    int start;$/;"	m	struct:ss_bracket	file:
 stored_loss	main.py	/^                stored_loss = val_loss$/;"	v
 stored_loss	main.py	/^                stored_loss = val_loss2$/;"	v
@@ -417,6 +445,9 @@ torch	main.py	/^import torch.nn as nn$/;"	i
 torch	main.py	/^import torch.optim.lr_scheduler as lr_scheduler$/;"	i
 torch	model.py	/^import torch$/;"	i
 torch	model.py	/^import torch.nn as nn$/;"	i
+torch	nm_lstm.py	/^import torch$/;"	i
+torch	nm_lstm.py	/^import torch.nn as nn$/;"	i
+torch	nm_lstm.py	/^import torch.nn.functional as F$/;"	i
 torch	splitcross.py	/^import torch$/;"	i
 torch	splitcross.py	/^import torch.nn as nn$/;"	i
 torch	test_phrase_grammar.py	/^import torch$/;"	i
@@ -447,4 +478,5 @@ words	embed_regularize.py	/^  words = np.random.random_integers(low=0, high=V-1,
 words	embed_regularize.py	/^  words = torch.LongTensor(words)$/;"	v
 wraps	weight_drop.py	/^from functools import wraps$/;"	i
 x	ON_LSTM.py	/^    x = torch.Tensor(10, 10, 10)$/;"	v	class:ONLSTMStack
+x	nm_lstm.py	/^    x = torch.Tensor(10, 10, 10)$/;"	v	class:ONLSTMStack
 x	weight_drop.py	/^    x = torch.autograd.Variable(torch.randn(2, 1, 10)).cuda()$/;"	v

@@ -20,8 +20,9 @@ fi
 
 case "$1" in
         1)
-            echo "Baseline"
+            echo "Baseline ON 1 layer"
             eval $BASE \
+                --nlayers 1
                 --batch_size 20
                 --dropout 0.45
                 --dropouth 0.3
@@ -33,6 +34,19 @@ case "$1" in
             ;;
 
         2)
+            echo "Baseline ON"
+            eval $BASE \
+                --batch_size 20
+                --dropout 0.45
+                --dropouth 0.3
+                --dropouti 0.5
+                --wdrop 0.45
+                --chunk_size 10
+                --seed 141
+                --epoch 1000
+            ;;
+
+        3)
             echo "Non-mon"
             eval $BASE \
                 --batch_size 20

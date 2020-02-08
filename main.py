@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser(description='PyTorch PennTreeBank RNN/LSTM Lang
 parser.add_argument('--data', type=str, default='data/penn/',
                     help='location of the data corpus')
 parser.add_argument('--model', type=str, default='LSTM',
-                    help='type of recurrent net (LSTM, QRNN, GRU)')
+                    help='(LSTM, QRNN, GRU, NMLSTM)')
 parser.add_argument('--emsize', type=int, default=400,
                     help='size of word embeddings')
 parser.add_argument('--nhid', type=int, default=1150,
@@ -83,6 +83,33 @@ if torch.cuda.is_available():
     else:
         torch.cuda.manual_seed(args.seed)
 
+###############################################################################
+# Losses
+###############################################################################
+
+def nm_lstmloss(args, ntokens, criterion, output, targets, hs):
+    loss_pred = criterion(output.view(-1, ntokens), targets)
+    # Regularize future hidden loss
+    # hs: a list of len 'layers'
+    hidden, h_fut, h_fut_trg = hs
+    mse = torch.nn.MSELoss(reduction='none')
+    loss_fut_tot = torch.zeros((1), requires_grad=True).to(device)
+    # Loop layers
+    for hidden, h_fut, h_fut_trg in hs:
+        l_fut = mse(h_fut, h_fut_trg)
+        # h_fut_trg values = 0 is masked from the loss
+        mask = h_fut_trg>0
+        mask.requires_grad = False
+        loss_fut = l_fut*mask.type_as(l_fut)
+        loss_fut = loss_fut.mean()
+        loss_fut_tot += loss_fut
+    loss = loss_pred + args.reg_alpha*loss_fut_tot
+    return loss_pred, loss_fut_tot
+
+def standard_loss(args, ntokens, criterion, output, targets, hs):
+    loss_pred = criterion(output.view(-1, ntokens), targets)
+    return loss_pred, 0
+
 
 ###############################################################################
 # Load data
@@ -132,9 +159,22 @@ from splitcross import SplitCrossEntropyLoss
 criterion = None
 
 ntokens = len(corpus.dictionary)
-model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid, args.chunk_size, args.nlayers,
-                       args.dropout, args.dropouth, args.dropouti, args.dropoute, args.wdrop, args.tied)
-###
+
+# Get model
+
+if args.model == "LSTM":
+    model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid,
+                args.chunk_size, args.nlayers, args.dropout, args.dropouth,
+                args.dropouti, args.dropoute, args.wdrop, args.tied)
+    loss_fn = standard_loss
+
+if args.model == "NMLSTM":
+    model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid,
+                args.chunk_size, args.nlayers, args.dropout, args.dropouth,
+                args.dropouti, args.dropoute, args.wdrop, args.tied,
+                greedy_eval=args.greedy_eval, fut_window=args.fut_window)
+    loss_fn = nm_lstmloss
+
 if args.resume:
     print('Resuming model ...')
     model_load(args.resume)

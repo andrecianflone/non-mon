@@ -55,6 +55,7 @@ def cumsoftmax(x, dim=-1):
 
 
 class ONLSTMCell(nn.Module):
+    """ Where the ON calc happens """
 
     def __init__(self, input_size, hidden_size, chunk_size, dropconnect=0.):
         super(ONLSTMCell, self).__init__()
@@ -78,15 +79,19 @@ class ONLSTMCell(nn.Module):
         hx, cx = hidden
 
         if transformed_input is None:
-            transformed_input = self.ih(input)
+            transformed_input = self.ih(input) # input to hidden product
 
+        # Eq. 1 to 4, compute all hiddens and add inputs
         gates = transformed_input + self.hh(hx)
+        # `cingate` and `cforgetgate` are the tilde-in and tilde-f gates
         cingate, cforgetgate = gates[:, :self.n_chunk*2].chunk(2, 1)
         outgate, cell, ingate, forgetgate = gates[:,self.n_chunk*2:].view(-1, self.n_chunk*4, self.chunk_size).chunk(4,1)
 
+        # Eq. 9 and 10
         cingate = 1. - cumsoftmax(cingate)
         cforgetgate = cumsoftmax(cforgetgate)
 
+        # TODO: What are the distances for?
         distance_cforget = 1. - cforgetgate.sum(dim=-1) / self.n_chunk
         distance_cin = cingate.sum(dim=-1) / self.n_chunk
 
@@ -100,10 +105,10 @@ class ONLSTMCell(nn.Module):
 
         # cy = cforgetgate * forgetgate * cx + cingate * ingate * cell
 
-        overlap = cforgetgate * cingate
+        overlap = cforgetgate * cingate # Eq. 11
         forgetgate = forgetgate * overlap + (cforgetgate - overlap)
         ingate = ingate * overlap + (cingate - overlap)
-        cy = forgetgate * cx + ingate * cell
+        cy = forgetgate * cx + ingate * cell # Eq. 14
 
         # hy = outgate * torch.tanh(self.c_norm(cy))
         hy = outgate * torch.tanh(cy)
@@ -148,12 +153,16 @@ class ONLSTMStack(nn.Module):
         outputs = []
         distances_forget = []
         distances_in = []
+
+        # Loop RNN Layers
         for l in range(len(self.cells)):
-            curr_layer = [None] * length
+            curr_layer = [None] * length # to store time step hidden
             dist = [None] * length
             t_input = self.cells[l].ih(prev_layer)
 
+            # Loop over the sequence
             for t in range(length):
+                # `d` is distance
                 hidden, cell, d = self.cells[l](
                     None, prev_state[l],
                     transformed_input=t_input[t]
