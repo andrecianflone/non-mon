@@ -87,15 +87,15 @@ if torch.cuda.is_available():
 # Losses
 ###############################################################################
 
-def nm_lstmloss(args, ntokens, criterion, output, targets, hs):
-    loss_pred = criterion(output.view(-1, ntokens), targets)
+def nm_lstmloss(args, criterion, model, output, targets, hs):
+    loss_pred = criterion(model.decoder.weight, model.decoder.bias, output, targets)
     # Regularize future hidden loss
     # hs: a list of len 'layers'
-    hidden, h_fut, h_fut_trg = hs
+    h_fut, h_fut_trg = hs
     mse = torch.nn.MSELoss(reduction='none')
     loss_fut_tot = torch.zeros((1), requires_grad=True).to(device)
     # Loop layers
-    for hidden, h_fut, h_fut_trg in hs:
+    for h_fut, h_fut_trg in hs:
         l_fut = mse(h_fut, h_fut_trg)
         # h_fut_trg values = 0 is masked from the loss
         mask = h_fut_trg>0
@@ -106,8 +106,8 @@ def nm_lstmloss(args, ntokens, criterion, output, targets, hs):
     loss = loss_pred + args.reg_alpha*loss_fut_tot
     return loss_pred, loss_fut_tot
 
-def standard_loss(args, ntokens, criterion, output, targets, hs):
-    loss_pred = criterion(output.view(-1, ntokens), targets)
+def standard_loss(args, criterion, model, output, targets, hs):
+    raw_loss = criterion(model.decoder.weight, model.decoder.bias, output, targets)
     return loss_pred, 0
 
 
@@ -251,11 +251,14 @@ def train():
         hidden = repackage_hidden(hidden)
         optimizer.zero_grad()
 
-        output, hidden, rnn_hs, dropped_rnn_hs = model(data, hidden, return_h=True)
+        output, hidden, rnn_hs, dropped_rnn_hs, nm_hs = model(data, hidden, return_h=True)
         # output, hidden = model(data, hidden, return_h=False)
-        raw_loss = criterion(model.decoder.weight, model.decoder.bias, output, targets)
 
-        loss = raw_loss
+        # hs: a list of len 'layers': hidden, h_fut, h_fut_trg = hs
+        loss, other_loss = loss_fn(args, criterion, model, output, targets, hs)
+        # raw_loss = criterion(model.decoder.weight, model.decoder.bias, output, targets)
+        # loss = raw_loss
+
         # Activiation Regularization
         if args.alpha:
             loss = loss + sum(

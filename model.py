@@ -79,14 +79,14 @@ class RNNModel(nn.Module):
 
         emb = self.lockdrop(emb, self.dropouti)
 
-        raw_output, hidden, raw_outputs, outputs, distances = self.rnn(emb, hidden)
+        raw_output, hidden, raw_outputs, outputs, distances, nm_hs = self.rnn(emb, hidden)
         self.distance = distances
 
         output = self.lockdrop(raw_output, self.dropout)
 
         result = output.view(output.size(0)*output.size(1), output.size(2))
         if return_h:
-            return result, hidden, raw_outputs, outputs
+            return result, hidden, raw_outputs, outputs, nm_hs
         else:
             return result, hidden
 

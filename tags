@@ -305,7 +305,7 @@ nmONLSTMCell	nm_lstm.py	/^class nmONLSTMCell(nn.Module):$/;"	c
 nmONLSTMStack	model.py	/^from nm_lstm import nmONLSTMStack$/;"	i
 nmONLSTMStack	nm_lstm.py	/^class nmONLSTMStack(nn.Module):$/;"	c
 nm_forward	nm_lstm.py	/^    def nm_forward(self, h_1):$/;"	m	class:nmONLSTMCell
-nm_lstmloss	main.py	/^def nm_lstmloss(args, ntokens, criterion, output, targets, hs):$/;"	f
+nm_lstmloss	main.py	/^def nm_lstmloss(args, criterion, model, output, targets, hs):$/;"	f
 nn	ON_LSTM.py	/^import torch.nn as nn$/;"	i
 nn	ON_LSTM.py	/^import torch.nn.functional as F$/;"	i
 nn	locked_dropout.py	/^import torch.nn as nn$/;"	i
@@ -403,7 +403,7 @@ ss_terminal	EVALB/evalb.c	/^typedef struct ss_terminal {$/;"	s	file:
 stack	EVALB/evalb.c	/^int stack[MAX_BRACKET_IN_SENT];$/;"	v
 stack_top	EVALB/evalb.c	/^int stack_top;$/;"	v
 stackempty	EVALB/evalb.c	/^stackempty()$/;"	f
-standard_loss	main.py	/^def standard_loss(args, ntokens, criterion, output, targets, hs):$/;"	f
+standard_loss	main.py	/^def standard_loss(args, criterion, model, output, targets, hs):$/;"	f
 start	EVALB/evalb.c	/^    int start;$/;"	m	struct:ss_bracket	file:
 stored_loss	main.py	/^                stored_loss = val_loss$/;"	v
 stored_loss	main.py	/^                stored_loss = val_loss2$/;"	v
