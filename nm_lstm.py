@@ -191,10 +191,17 @@ class nmONLSTMCell(nn.Module):
             m.sample_mask()
 
 
-class ONLSTMStack(nn.Module):
-    def __init__(self, layer_sizes, chunk_size, dropout=0., dropconnect=0.):
-        super(ONLSTMStack, self).__init__()
-        self.cells = nn.ModuleList([ONLSTMCell(layer_sizes[i],
+class nmONLSTMStack(nn.Module):
+    def __init__(self, layer_sizes, chunk_size, dropout=0., dropconnect=0.,
+            greedy_eval=False, fut_window=5):
+        """
+        Args:
+            greedy_eval: greedy future position, instead of sampling
+            fut_window: window size over the future
+        """
+        super().__init__()
+
+        self.cells = nn.ModuleList([nmONLSTMCell(layer_sizes[i],
                                                layer_sizes[i+1],
                                                chunk_size,
                                                dropconnect=dropconnect)

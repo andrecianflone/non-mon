@@ -59,7 +59,6 @@ N	splitcross.py	/^    N = 100$/;"	v	class:SplitCrossEntropyLoss
 ONLSTMCell	ON_LSTM.py	/^class ONLSTMCell(nn.Module):$/;"	c
 ONLSTMStack	ON_LSTM.py	/^class ONLSTMStack(nn.Module):$/;"	c
 ONLSTMStack	model.py	/^from ON_LSTM import ONLSTMStack$/;"	i
-ONLSTMStack	nm_lstm.py	/^class ONLSTMStack(nn.Module):$/;"	c
 Parameter	weight_drop.py	/^from torch.nn import Parameter$/;"	i
 Quote_term	EVALB/evalb.c	/^char *Quote_term[MAX_QUOTE_TERM];$/;"	v
 Quote_term_n	EVALB/evalb.c	/^int Quote_term_n = 0;$/;"	v
@@ -116,7 +115,7 @@ __init__	model.py	/^    def __init__(self, rnn_type, ntoken, ninp, nhid, chunk_s
 __init__	nm_lstm.py	/^    def __init__(self, features, eps=1e-6):$/;"	m	class:LayerNorm
 __init__	nm_lstm.py	/^    def __init__(self, in_features, out_features, bias=True, dropout=0.):$/;"	m	class:LinearDropConnect
 __init__	nm_lstm.py	/^    def __init__(self, input_size, hidden_size, chunk_size, dropconnect=0.):$/;"	m	class:nmONLSTMCell
-__init__	nm_lstm.py	/^    def __init__(self, layer_sizes, chunk_size, dropout=0., dropconnect=0.):$/;"	m	class:ONLSTMStack
+__init__	nm_lstm.py	/^    def __init__(self, layer_sizes, chunk_size, dropout=0., dropconnect=0.,$/;"	m	class:nmONLSTMStack
 __init__	splitcross.py	/^    def __init__(self, hidden_size, splits, verbose=False):$/;"	m	class:SplitCrossEntropyLoss
 __init__	weight_drop.py	/^    def __init__(self, module, weights, dropout=0, variational=False):$/;"	m	class:WeightDrop
 __len__	data.py	/^    def __len__(self):$/;"	m	class:Dictionary	file:
@@ -206,7 +205,7 @@ forward	ON_LSTM.py	/^    def forward(self, input, sample_mask=False):$/;"	m	clas
 forward	ON_LSTM.py	/^    def forward(self, x):$/;"	m	class:LayerNorm
 forward	locked_dropout.py	/^    def forward(self, x, dropout=0.5):$/;"	m	class:LockedDropout
 forward	model.py	/^    def forward(self, input, hidden, return_h=False):$/;"	m	class:RNNModel
-forward	nm_lstm.py	/^    def forward(self, input, hidden):$/;"	m	class:ONLSTMStack
+forward	nm_lstm.py	/^    def forward(self, input, hidden):$/;"	m	class:nmONLSTMStack
 forward	nm_lstm.py	/^    def forward(self, input, hidden,$/;"	m	class:nmONLSTMCell
 forward	nm_lstm.py	/^    def forward(self, input, sample_mask=False):$/;"	m	class:LinearDropConnect
 forward	nm_lstm.py	/^    def forward(self, x):$/;"	m	class:LayerNorm
@@ -264,8 +263,8 @@ init_global	EVALB/evalb.c	/^init_global()$/;"	f
 init_hidden	ON_LSTM.py	/^    def init_hidden(self, bsz):$/;"	m	class:ONLSTMCell
 init_hidden	ON_LSTM.py	/^    def init_hidden(self, bsz):$/;"	m	class:ONLSTMStack
 init_hidden	model.py	/^    def init_hidden(self, bsz):$/;"	m	class:RNNModel
-init_hidden	nm_lstm.py	/^    def init_hidden(self, bsz):$/;"	m	class:ONLSTMStack
 init_hidden	nm_lstm.py	/^    def init_hidden(self, bsz):$/;"	m	class:nmONLSTMCell
+init_hidden	nm_lstm.py	/^    def init_hidden(self, bsz):$/;"	m	class:nmONLSTMStack
 init_weights	model.py	/^    def init_weights(self):$/;"	m	class:RNNModel
 is_deletelabel	EVALB/evalb.c	/^is_deletelabel(s)$/;"	f
 is_deletelabel_for_length	EVALB/evalb.c	/^is_deletelabel_for_length(s)$/;"	f
@@ -284,7 +283,7 @@ loss_fn	main.py	/^    loss_fn = standard_loss$/;"	v
 lr	main.py	/^lr = args.lr$/;"	v
 lr_scheduler	main.py	/^import torch.optim.lr_scheduler as lr_scheduler$/;"	i
 lstm	ON_LSTM.py	/^    lstm = ONLSTMStack([10, 10, 10], chunk_size=10)$/;"	v	class:ONLSTMStack
-lstm	nm_lstm.py	/^    lstm = ONLSTMStack([10, 10, 10], chunk_size=10)$/;"	v	class:ONLSTMStack
+lstm	nm_lstm.py	/^    lstm = ONLSTMStack([10, 10, 10], chunk_size=10)$/;"	v	class:nmONLSTMStack
 main	EVALB/evalb.c	/^main(argc,argv)$/;"	f
 massage_data	EVALB/evalb.c	/^massage_data()$/;"	f
 math	main.py	/^import math$/;"	i
@@ -303,6 +302,8 @@ nltk	data_ptb.py	/^import nltk$/;"	i
 nltk	test_phrase_grammar.py	/^import nltk$/;"	i
 nltk	utils.py	/^    import nltk$/;"	i
 nmONLSTMCell	nm_lstm.py	/^class nmONLSTMCell(nn.Module):$/;"	c
+nmONLSTMStack	model.py	/^from nm_lstm import nmONLSTMStack$/;"	i
+nmONLSTMStack	nm_lstm.py	/^class nmONLSTMStack(nn.Module):$/;"	c
 nm_forward	nm_lstm.py	/^    def nm_forward(self, h_1):$/;"	m	class:nmONLSTMCell
 nm_lstmloss	main.py	/^def nm_lstmloss(args, ntokens, criterion, output, targets, hs):$/;"	f
 nn	ON_LSTM.py	/^import torch.nn as nn$/;"	i
@@ -478,5 +479,5 @@ words	embed_regularize.py	/^  words = np.random.random_integers(low=0, high=V-1,
 words	embed_regularize.py	/^  words = torch.LongTensor(words)$/;"	v
 wraps	weight_drop.py	/^from functools import wraps$/;"	i
 x	ON_LSTM.py	/^    x = torch.Tensor(10, 10, 10)$/;"	v	class:ONLSTMStack
-x	nm_lstm.py	/^    x = torch.Tensor(10, 10, 10)$/;"	v	class:ONLSTMStack
+x	nm_lstm.py	/^    x = torch.Tensor(10, 10, 10)$/;"	v	class:nmONLSTMStack
 x	weight_drop.py	/^    x = torch.autograd.Variable(torch.randn(2, 1, 10)).cuda()$/;"	v
