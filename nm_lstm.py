@@ -56,8 +56,9 @@ def cumsoftmax(x, dim=-1):
 class nmONLSTMCell(nn.Module):
     """ Where the ON calc happens """
 
-    def __init__(self, input_size, hidden_size, chunk_size, dropconnect=0.):
-        super(ONLSTMCell, self).__init__()
+    def __init__(self, input_size, hidden_size, chunk_size, dropconnect=0.,
+            window=5):
+        super().__init__()
         self.input_size = input_size
         self.hidden_size = hidden_size
         self.chunk_size = chunk_size
@@ -75,9 +76,9 @@ class nmONLSTMCell(nn.Module):
 
         # Future state params
         self.weight_hgs, self.weight_gsh, self.weight_hhf = \
-                                                    self.get_future_state()
+                            self.get_future_state_params(hidden_size, window)
 
-    def get_future_state_params(self):
+    def get_future_state_params(self, hidden_size, window):
         # Future state params
         # Weights to produce the GS scores
         weight_hgs = nn.Parameter(torch.FloatTensor(hidden_size, window))
@@ -96,6 +97,8 @@ class nmONLSTMCell(nn.Module):
         weight_hgs.data.uniform_(-initrange, initrange)
         weight_gsh.data.uniform_(-initrange, initrange)
         weight_hhf.data.uniform_(-initrange, initrange)
+
+        return weight_hgs, weight_gsh, weight_hhf
 
     def forward(self, input, hidden,
                 transformed_input=None):
@@ -135,12 +138,12 @@ class nmONLSTMCell(nn.Module):
 
         # hy = outgate * torch.tanh(self.c_norm(cy))
         hy = outgate * torch.tanh(cy)
+        hy = hy.view(-1, self.hidden_size)
 
         # Get non-mon tensors
-        h_f, h_c, loc = self.nm_forward(hy,
+        h_f, h_c, loc = self.nm_forward(hy)
 
-        return hy.view(-1, self.hidden_size), cy,
-                            (distance_cforget, distance_cin), (h_f, h_c, loc)
+        return hy, cy, (distance_cforget, distance_cin), (h_f, h_c, loc)
 
     def nm_forward(self, h_1):
         """
@@ -204,7 +207,8 @@ class nmONLSTMStack(nn.Module):
         self.cells = nn.ModuleList([nmONLSTMCell(layer_sizes[i],
                                                layer_sizes[i+1],
                                                chunk_size,
-                                               dropconnect=dropconnect)
+                                               dropconnect=dropconnect,
+                                               window=fut_window)
                                     for i in range(len(layer_sizes) - 1)])
         self.lockdrop = LockedDropout()
         self.dropout = dropout

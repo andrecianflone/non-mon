@@ -71,6 +71,15 @@ parser.add_argument('--finetuning', type=int, default=500,
                     help='When (which epochs) to switch to finetuning')
 parser.add_argument('--philly', action='store_true',
                     help='Use philly cluster')
+
+    # Non-mono model params
+parser.add_argument('--reg_alpha', type=float, default=0.5,
+            help='Weight of MSE loss for future hidden')
+parser.add_argument('--greedy_eval', action='store_true',default=False,
+            help='greedy future position (one-hot)')
+parser.add_argument('--fut_window', type=int, default=5,
+            help='Max steps in future to predict hidden states')
+
 args = parser.parse_args()
 args.tied = True
 
@@ -244,10 +253,10 @@ def train():
         lr2 = optimizer.param_groups[0]['lr']
         optimizer.param_groups[0]['lr'] = lr2 * seq_len / args.bptt
         model.train()
+        # data shape [length, batch_size]
         data, targets = get_batch(train_data, i, args, seq_len=seq_len)
 
-        # Starting each batch, we detach the hidden state from how it was previously produced.
-        # If we didn't, the model would try backpropagating all the way to start of the dataset.
+        # Detach state from previous step
         hidden = repackage_hidden(hidden)
         optimizer.zero_grad()
 

@@ -27,14 +27,14 @@ class RNNModel(nn.Module):
                 dropconnect=wdrop,
                 dropout=dropouth
             )
-        elif: rnn_type == 'NMLSTM':
+        elif rnn_type == 'NMLSTM':
             self.rnn = nmONLSTMStack(
                 [ninp] + [nhid] * (nlayers - 1) + [ninp],
                 chunk_size=chunk_size,
                 dropconnect=wdrop,
                 dropout=dropouth,
                 greedy_eval=kwargs['greedy_eval'],
-                fut_window=kwargs['fut_window'])
+                fut_window=kwargs['fut_window']
             )
 
         self.decoder = nn.Linear(ninp, ntoken)
