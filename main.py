@@ -10,6 +10,7 @@ import data
 import model
 
 from utils import batchify, get_batch, repackage_hidden
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 parser = argparse.ArgumentParser(description='PyTorch PennTreeBank RNN/LSTM Language Model')
 parser.add_argument('--data', type=str, default='data/penn/',
@@ -104,7 +105,7 @@ def nm_lstmloss(args, criterion, model, output, targets, hs):
     mse = torch.nn.MSELoss(reduction='none')
     loss_fut_tot = torch.zeros((1), requires_grad=True).to(device)
     # Loop layers
-    for h_fut, h_fut_trg in hs:
+    for h_fut, h_fut_trg in zip(*hs):
         l_fut = mse(h_fut, h_fut_trg)
         # h_fut_trg values = 0 is masked from the loss
         mask = h_fut_trg>0
@@ -264,9 +265,9 @@ def train():
         # output, hidden = model(data, hidden, return_h=False)
 
         # hs: a list of len 'layers': hidden, h_fut, h_fut_trg = hs
-        loss, other_loss = loss_fn(args, criterion, model, output, targets, hs)
+        raw_loss, other_loss = loss_fn(args, criterion, model, output, targets, nm_hs)
         # raw_loss = criterion(model.decoder.weight, model.decoder.bias, output, targets)
-        # loss = raw_loss
+        loss = raw_loss + other_loss
 
         # Activiation Regularization
         if args.alpha:

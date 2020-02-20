@@ -1,6 +1,7 @@
 import torch.nn.functional as F
 import torch.nn as nn
 import torch
+from torch.distributions.relaxed_bernoulli import LogitRelaxedBernoulli
 
 from locked_dropout import LockedDropout
 
@@ -56,13 +57,14 @@ def cumsoftmax(x, dim=-1):
 class nmONLSTMCell(nn.Module):
     """ Where the ON calc happens """
 
-    def __init__(self, input_size, hidden_size, chunk_size, dropconnect=0.,
-            window=5):
+    def __init__(self, input_size, hidden_size, chunk_size, greedy_eval,
+            dropconnect=0., window=5):
         super().__init__()
         self.input_size = input_size
         self.hidden_size = hidden_size
         self.chunk_size = chunk_size
         self.n_chunk = int(hidden_size / chunk_size)
+        self.greedy_eval=greedy_eval
 
         self.ih = nn.Sequential(
             nn.Linear(input_size, 4 * hidden_size + self.n_chunk * 2, bias=True),
@@ -207,6 +209,7 @@ class nmONLSTMStack(nn.Module):
         self.cells = nn.ModuleList([nmONLSTMCell(layer_sizes[i],
                                                layer_sizes[i+1],
                                                chunk_size,
+                                               greedy_eval=greedy_eval,
                                                dropconnect=dropconnect,
                                                window=fut_window)
                                     for i in range(len(layer_sizes) - 1)])
@@ -235,7 +238,7 @@ class nmONLSTMStack(nn.Module):
         # Non-mon lists storing each layer...
         h_n_c = [] # lists of output composed of past and future hidden
         h_n_f = [] # lists of future hidden
-        loc = [] # lists of future locations
+        loc_n = [] # lists of future locations
 
         # Loop RNN Layers
         for l in range(len(self.cells)):
@@ -294,18 +297,18 @@ class nmONLSTMStack(nn.Module):
 
             h_n_c.append(layer_out_c)
             h_n_f.append(layer_h_future)
-            loc.append(layer_loc_future)
+            loc_n.append(layer_loc_future)
 
         output = prev_layer
 
         # Non-mon targets
         output = layer_out_c # combined past-future
-        h_past = torch.stack(h_past, 0)
-        h_n = torch.stack(h_n, 0)
-        c_n = torch.stack(c_n, 0)
+        h_past = torch.stack(raw_outputs, 0)
+        # h_n = torch.stack(h_n, 0)
+        # c_n = torch.stack(c_n, 0)
         h_n_c = torch.stack(h_n_c, 0)
         h_n_f = torch.stack(h_n_f, 0)
-        loc = torch.stack(loc, 0)
+        loc = torch.stack(loc_n, 0)
 
         # Cap location array
         loc[loc>=length]=0
@@ -321,6 +324,10 @@ class nmONLSTMStack(nn.Module):
         mask.requires_grad = False
         trg = trg*mask.type_as(trg)
         trg = trg.permute(0, 2, 1, 3)
+        # h_n_f and trg are shape [layers, length, batch, h_size]
+        # Make layer dim into list, standardize with other objects
+        h_n_f = h_n_f.unbind(dim=0)
+        trg = trg.unbind(dim=0)
 
         return output, prev_state, raw_outputs, outputs, (torch.stack(distances_forget), torch.stack(distances_in)), (h_n_f, trg)
 
